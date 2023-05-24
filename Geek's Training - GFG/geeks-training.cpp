@@ -45,11 +45,35 @@ class Solution {
      }
       return dp[n-1][3];
   }
+   int space(int n,vector<vector<int>>& points){
+     
+     vector<int>prev(4,0);
+    //  vector<int>curr(4,0);
+     prev[0]=max(points[0][1],points[0][2]);
+     prev[1]=max(points[0][0],points[0][2]);
+     prev[2]=max(points[0][1],points[0][0]);
+     prev[3]=max(points[0][1],max(points[0][2],points[0][0]));
+     for(int day=1;day<n;day++){
+         vector<int>curr(4,0);
+     for(int last=0;last<4;last++){
+         curr[last]=0;
+          for(int task=0;task<3;task++){
+         if(task!=last) {
+           int point=points[day][task]+prev[task];
+           curr[last]=max(curr[last],point);
+         }
+      }}
+      prev=curr;
+     }
+      return prev[3];
+  }
     int maximumPoints(vector<vector<int>>& points, int n) {
         // vector<vector<int>>dp(n,vector<int>(4,-1));
         // return rec(n-1,3,points,dp);
         
-        return tabulation(n,points);
+        // return tabulation(n,points);
+        
+        return space(n,points);
     }
 };
 
