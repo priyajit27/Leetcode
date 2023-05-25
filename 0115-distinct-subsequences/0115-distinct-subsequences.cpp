@@ -23,24 +23,43 @@ public:
         // return rec(n-1,m-1,s1,s2,dp);
         
 //         Tabulation like LCS index shifting
-         vector<vector<int>>dp(n+1,vector<int>(m+1,0));
+//          vector<vector<int>>dp(n+1,vector<int>(m+1,0));
         
-        for(int i=0;i<n+1;i++)
-            dp[i][0]=1;
-//          for(int j=1;j<m+1;j++)
-//             dp[0][j]=0;
+//         for(int i=0;i<n+1;i++)
+//             dp[i][0]=1;
+// //          for(int j=1;j<m+1;j++)
+// //             dp[0][j]=0;
         
+//         for(int i=1;i<=n;i++){
+//           for(int j=1;j<=m;j++){
+//              if(s1[i-1]==s2[j-1]){
+//            int stay=dp[i-1][j-1];
+//             int leaveone=dp[i-1][j];
+//              dp[i][j]= (stay+leaveone)%p;
+//              }
+//               else
+//               dp[i][j]= dp[i-1][j];   
+//         }  
+//         }
+//          return dp[n][m];
+        
+        
+        
+        // Space optimised
+         vector<int>prev(m+1,0);
+        
+            prev[0]=1;
         for(int i=1;i<=n;i++){
-          for(int j=1;j<=m;j++){
+          for(int j=m;j>=1;j--){
              if(s1[i-1]==s2[j-1]){
-           int stay=dp[i-1][j-1];
-            int leaveone=dp[i-1][j];
-             dp[i][j]= (stay+leaveone)%p;
+           int stay=prev[j-1];
+            int leaveone=prev[j];
+             prev[j]= (stay+leaveone)%p;
              }
-              else
-              dp[i][j]= dp[i-1][j];   
+              // else
+              // prev[j]= prev[j];   
         }  
         }
-         return dp[n][m];
+         return prev[m];
     }
 };
