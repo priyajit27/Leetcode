@@ -23,7 +23,7 @@ public:
         // return rec(n-1,m-1,s1,s2,dp);
         
 //         Tabulation like LCS index shifting
-         vector<vector<double>>dp(n+1,vector<double>(m+1,0));
+         vector<vector<int>>dp(n+1,vector<int>(m+1,0));
         
         for(int i=0;i<n+1;i++)
             dp[i][0]=1;
@@ -41,6 +41,6 @@ public:
               dp[i][j]= dp[i-1][j];   
         }  
         }
-         return (int)dp[n][m];
+         return dp[n][m];
     }
 };
