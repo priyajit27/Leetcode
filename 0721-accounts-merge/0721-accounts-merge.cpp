@@ -43,7 +43,7 @@ public:
                     mp[mail]=i;
                 }
                 else
-                ds.unionBySize(i,mp[mail]);
+                ds.unionBySize(mp[mail],i);
             }
         }
         
