@@ -46,12 +46,13 @@ class Solution
         //  }
         //  return dp[n-1][W];
         
-        
+        // Space optimised
          vector<int>prev(W+1,0);
-         vector<int>curr(W+1,0);
+        //  vector<int>curr(W+1,0);
          for(int i=wt[0];i<=W;i++)
          prev[i]=val[0];
          for(int i=1;i<n;i++){
+                vector<int>curr(W+1,0);
              for(int j=0;j<=W;j++){
                   int nottake=prev[j];
               int taken=INT_MIN;
