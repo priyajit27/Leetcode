@@ -20,8 +20,8 @@ public:
         // return rec(1,cuts.size()-2,cuts,dp);
         
         
+        cuts.push_back(n);
         cuts.insert(cuts.begin(),0);
-		cuts.insert(cuts.end(),n);
 		sort(cuts.begin(),cuts.end());
 		int m=cuts.size();
 		vector<vector<int>> dp(m,vector<int>(m,0));
@@ -35,6 +35,6 @@ public:
 				dp[i][j]=mini;
 			}
 		}
-		return dp[1][cuts.size()-2];
+		return dp[1][m-2];
     }
 };
