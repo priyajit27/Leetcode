@@ -24,25 +24,25 @@ public:
         return dp[i][w]=max(taken,nottake);
 }
     int knapSack(int n, int W, int val[], int wt[]){
-          vector<vector<int>> dp(n,vector<int>(W+1,-1));
-          return rec(wt,val,n-1,W,dp);
+        //   vector<vector<int>> dp(n,vector<int>(W+1,-1));
+        //   return rec(wt,val,n-1,W,dp);
         
         
         // Tabulation
-        //  vector<vector<int>> dp(n,vector<int>(W+1,0));
+         vector<vector<int>> dp(n,vector<int>(W+1,0));
          
-        //  for(int i=wt[0];i<=W;i++)
-        //  dp[0][i]=val[0];
-        //  for(int i=1;i<n;i++){
-        //      for(int j=0;j<=W;j++){
-        //           int nottake=dp[i-1][j];
-        //       int taken=INT_MIN;
-        //         if(wt[i]<=j)
-        //         taken=val[i]+dp[i-1][j-wt[i]];
-        //   dp[i][j]=max(taken,nottake);
-        //      }
-        //  }
-        //  return dp[n-1][W];
+         for(int i=0;i<=W;i++)
+         dp[0][i]=((int)(i/wt[0]))*val[0];
+         for(int i=1;i<n;i++){
+             for(int j=0;j<=W;j++){
+                  int nottake=dp[i-1][j];
+              int taken=INT_MIN;
+                if(wt[i]<=j)
+                taken=val[i]+dp[i][j-wt[i]];
+          dp[i][j]=max(taken,nottake);
+             }
+         }
+         return dp[n-1][W];
         
         // Space optimised
         //  vector<int>prev(W+1,0);
