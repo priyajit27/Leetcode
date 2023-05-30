@@ -27,14 +27,37 @@ class Solution {
     return dp[ind][target]= (notTaken + taken)%m;
 }
     int countPartitions(int n, int d, vector<int>& arr) {
+            int m=1e9+7;
         int total=0;
         for(int i=0;i<n;i++)
         total+=arr[i];
         int s2=(total-d);
         if(s2<0 || s2%2==1)
         return 0;
-        vector<vector<int>>dp(n,vector<int>(s2/2+1,-1));
-        return findWaysUtil(n-1,s2/2,arr, dp);
+        // vector<vector<int>>dp(n,vector<int>(s2/2+1,-1));
+        // return findWaysUtil(n-1,s2/2,arr, dp);
+        
+        
+        // Tabulation
+        vector<vector<int>>dp(n,vector<int>(s2/2+1,0));
+        if(arr[0]==0)
+        dp[0][0]=2;
+        else
+        dp[0][0]=1;
+        
+        if(arr[0]!=0 && arr[0]<=s2/2)
+           dp[0][arr[0]]=1;
+        for(int i=1;i<n;i++){
+            for(int j=0;j<=s2/2;j++){
+                 int notTaken = dp[i-1][j];
+                 int taken = 0;
+                if(arr[i]<=j)
+              taken =dp[i-1][j-arr[i]];
+        
+               dp[i][j]= (notTaken + taken)%m;
+            }
+        }
+        return dp[n-1][s2/2];
     }
 };
 
