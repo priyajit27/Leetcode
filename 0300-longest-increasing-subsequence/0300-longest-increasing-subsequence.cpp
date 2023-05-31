@@ -20,6 +20,7 @@ public:
         // vector<vector<int>>dp(n,vector<int>(n+1,-1));
         // return rec(0,-1,nums,dp);
         
+//         Tabulation
 //      vector<vector<int>>dp(n+1,vector<int>(n+1,0));
 //         for(int i=n-1;i>=0;i--){
 //             for(int j=i-1;j>=-1;j--){
@@ -34,21 +35,35 @@ public:
 //         }
 //        return dp[0][0];
         
-         vector<int>front(n+1,0);
-                 vector<int>curr(n+1,0);
-
-        for(int i=n-1;i>=0;i--){
-            for(int j=i-1;j>=-1;j--){
-                 int nottake=front[j+1];
-        //         pick
-        int take=0;
-       if(j==-1 || nums[i]>nums[j]) 
-        take=1+front[i+1];
         
-        curr[j+1]= max(take,nottake);
+//         Space optimised
+//          vector<int>front(n+1,0);
+//                  vector<int>curr(n+1,0);
+
+//         for(int i=n-1;i>=0;i--){
+//             for(int j=i-1;j>=-1;j--){
+//                  int nottake=front[j+1];
+//         //         pick
+//         int take=0;
+//        if(j==-1 || nums[i]>nums[j]) 
+//         take=1+front[i+1];
+        
+//         curr[j+1]= max(take,nottake);
+//             }
+//             front=curr;
+//         }
+//        return front[0];
+        
+        int maxi=INT_MIN;
+        vector<int>dp(n+1,1);
+        for(int ind=0;ind<n;ind++){
+            for(int prev=0;prev<ind;prev++){
+                if( nums[ind]>nums[prev]){
+                    dp[ind]=max( dp[ind],1+ dp[prev]);
+                }
             }
-            front=curr;
+            maxi=max(maxi,dp[ind]);
         }
-       return front[0];
+        return maxi;
     }
 };
