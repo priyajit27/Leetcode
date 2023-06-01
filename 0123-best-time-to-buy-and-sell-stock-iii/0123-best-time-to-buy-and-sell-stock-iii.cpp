@@ -20,41 +20,44 @@ public:
         // return rec(prices,0,0,dp,2);
         
 //         Tabulation
-       vector<vector<vector<int>>>dp(n+1,vector<vector<int>>(2,vector<int>(3,0)));
+//        vector<vector<vector<int>>>dp(n+1,vector<vector<int>>(2,vector<int>(3,0)));
+        
+//         int profit;
+//         for(int index=n-1;index>=0;index--){
+//             for(int buy=0;buy<=1;buy++){
+//                 for(int cap=1;cap<=2;cap++){
+//                  if(buy==0)
+//          profit=max(-prices[index]+dp[index+1][1][cap],dp[index+1][0][cap]);
+            
+//             else
+//             profit=max(prices[index]+dp[index+1][0][cap-1],dp[index+1][1][cap])  ;  
+//            dp[index][buy][cap]= profit;
+//             }
+//                 }
+//         }
+//         return dp[0][0][2];
+        
+
+        
+         vector<vector<int>>curr(2,vector<int>(3,0));
+                 vector<vector<int>>ahead(2,vector<int>(3,0));
+
         
         int profit;
         for(int index=n-1;index>=0;index--){
             for(int buy=0;buy<=1;buy++){
                 for(int cap=1;cap<=2;cap++){
                  if(buy==0)
-         profit=max(-prices[index]+dp[index+1][1][cap],dp[index+1][0][cap]);
+         profit=max(-prices[index]+ahead[1][cap],ahead[0][cap]);
             
             else
-            profit=max(prices[index]+dp[index+1][0][cap-1],dp[index+1][1][cap])  ;  
-           dp[index][buy][cap]= profit;
+            profit=max(prices[index]+ahead[0][cap-1],ahead[1][cap])  ;  
+           curr[buy][cap]= profit;
             }
                 }
+            ahead=curr;
         }
-        return dp[0][0][2];
+        return ahead[0][2];
         
-//         vector<int>curr(2,0);
-//          vector<int>ahead(2,0);
-
-//            ahead[0]=0;     
-//         ahead[1]=0;
-        
-//         int profit;
-//         for(int index=n-1;index>=0;index--){
-//             for(int buy=0;buy<=1;buy++){
-//                  if(buy==0)
-//          profit=max(-prices[index]+ahead[1],ahead[0]);
-            
-//             else
-//             profit=max(prices[index]+ahead[0],ahead[1])  ;  
-//            curr[buy]= profit;
-//             }
-//             ahead=curr;
-//         }
-//         return ahead[0]; 
     }
 };
