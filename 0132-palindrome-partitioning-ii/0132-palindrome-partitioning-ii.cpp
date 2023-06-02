@@ -27,7 +27,24 @@ public:
     }
     int minCut(string s) {
         int n=s.size();
-        vector<int>dp(n,-1);
-        return rec(0,s,dp)-1;
+        // vector<int>dp(n,-1);
+        // return rec(0,s,dp)-1;
+        
+//         Tabulation
+        
+         vector<int>dp(n+1,0);
+        for(int i=n-1;i>=0;i--){
+            string temp;
+        int mincost=INT_MAX;
+        for(int j=i;j<n;j++){
+            temp+=s[j];
+            if(isPlaindrome(temp)){
+                 int cost=1+dp[j+1];
+                mincost=min(mincost,cost);
+            }
+        }
+            dp[i]=mincost;
+        }
+        return dp[0]-1;
     }
 };
