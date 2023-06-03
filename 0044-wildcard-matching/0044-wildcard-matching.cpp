@@ -22,14 +22,49 @@ public:
              if(s2[j]=='*')
             return dp[i][j]=rec(i-1,j,s1,s2,dp) || rec(i,j-1,s1,s2,dp);
         
-        return false; 
-        
+        return false;   
       
     }
+    
+    bool isAllstars(string &s,int i){
+          for(int k=1;k<=i;k++){
+                if(s[k-1]!='*')
+                    return false;
+            }
+             return true;
+    }
+    
+    
     bool isMatch(string s1, string s2) {
         int n=s1.size();
         int m=s2.size();
-  vector<vector<int>> dp(n,vector<int>(m,-1));
-        return rec(n-1,m-1,s1,s2,dp);
+  // vector<vector<int>> dp(n,vector<int>(m,-1));
+        // return rec(n-1,m-1,s1,s2,dp);
+        
+    vector<vector<int>> dp(n+1,vector<int>(m+1,0));    
+      
+        dp[0][0]=true;
+        for(int i=1;i<=n;i++){
+            dp[i][0]=false;
+        }
+        
+         for(int j=1;j<=m;j++){
+            dp[0][j]=isAllstars(s2,j);
+        }
+        
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                if(s1[i-1]==s2[j-1] || s2[j-1]=='?' )
+             dp[i][j]=dp[i-1][j-1];
+    
+            else{ 
+                if(s2[j-1]=='*')
+             dp[i][j]=dp[i][j-1]|| dp[i-1][j];
+                 else
+                dp[i][j]=false;     
+                 }
+            }
+        }
+         return dp[n][m];   
     }
 };
