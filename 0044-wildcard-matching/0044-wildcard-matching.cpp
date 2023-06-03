@@ -67,8 +67,8 @@ public:
 //         }
 //          return dp[n][m];   
         
-         vector<int>curr(m+1,0);    
-          vector<int>prev(m+1,0);    
+         vector<bool>curr(m+1,false);    
+          vector<bool>prev(m+1,false);    
      
         prev[0]=true;
        
