@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+//     binary Height max intution
+    
     int check(TreeNode* root,bool& ans){
         if(root==NULL || ans==false)
             return 0;
