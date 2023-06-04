@@ -24,25 +24,51 @@ public:
         
         
           // using stack
-         if(root==NULL)
-            return {};
-        stack<TreeNode*>s1;
-        stack<TreeNode*>s2;
-        s1.push(root);
-        while(!s1.empty()){
-             root=s1.top();
-            s1.pop();
-            s2.push(root);
+//          if(root==NULL)
+//             return {};
+//         stack<TreeNode*>s1;
+//         stack<TreeNode*>s2;
+//         s1.push(root);
+//         while(!s1.empty()){
+//              root=s1.top();
+//             s1.pop();
+//             s2.push(root);
         
-            if(root->left)
-               s1.push(root->left); 
-            if(root->right)
-               s1.push(root->right); 
-        }
-        while(!s2.empty()){
-            TreeNode* node=s2.top();
-            v.push_back(node->val);
-            s2.pop();
+//             if(root->left)
+//                s1.push(root->left); 
+//             if(root->right)
+//                s1.push(root->right); 
+//         }
+//         while(!s2.empty()){
+//             TreeNode* node=s2.top();
+//             v.push_back(node->val);
+//             s2.pop();
+//         }
+//         return v;
+        
+          if(root==NULL)
+            return v;
+          stack<TreeNode*>st;
+        while(root!=NULL || !st.empty()){
+            if(root!=NULL){
+                st.push(root);
+                root=root->left;
+            }
+            else{
+                TreeNode* temp=st.top()->right;
+                if(temp==NULL){
+                    temp=st.top();
+                    st.pop();
+                    v.push_back(temp->val);
+                    while(!st.empty() && temp==st.top()->right){
+                        temp=st.top();
+                        st.pop();
+                         v.push_back(temp->val);
+                    }
+                }
+                else
+                    root=temp;
+            }
         }
         return v;
     }
