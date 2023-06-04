@@ -14,7 +14,7 @@ public:
 //     binary Height max intution
     
     int check(TreeNode* root,bool& ans){
-        if(root==NULL || ans==false)
+        if(root==NULL )
             return 0;
     int left=check(root->left,ans);
       int right=check(root->right,ans);
