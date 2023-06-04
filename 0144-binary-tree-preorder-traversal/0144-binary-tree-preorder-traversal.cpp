@@ -34,6 +34,7 @@ public:
              root=st.top();
             st.pop();
            v.push_back(root->val) ;
+//             O(N)
             if(root->right)
                st.push(root->right); 
              if(root->left)
