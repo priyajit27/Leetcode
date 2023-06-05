@@ -34,6 +34,7 @@ public:
     void smallest(TreeNode* root, int& k,int& ans){
         if(root==NULL)
             return ;
+//         Inorder
         smallest(root->left,k,ans);
         k--;
         if(k==0){
