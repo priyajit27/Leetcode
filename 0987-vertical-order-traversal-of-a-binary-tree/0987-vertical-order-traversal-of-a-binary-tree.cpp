@@ -38,7 +38,10 @@ public:
         for (auto p: mp) {
         vector < int > col;
         for (auto q: p.second) {
-      col.insert(col.end(), q.second.begin(), q.second.end());
+         multiset<int>temp=q.second;
+            for(auto i:temp){
+                col.push_back(i);
+            }
     }
     ans.push_back(col);
   }
