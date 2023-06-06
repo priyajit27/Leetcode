@@ -28,7 +28,7 @@ public:
             int left;
             int right;
             for(int i=0;i<x;i++){
-                long long curr_id=q.front().second-currmin;
+                long long curr_id=q.front().second;
                 TreeNode* node=q.front().first;
                 q.pop();
                 if(i==0)
