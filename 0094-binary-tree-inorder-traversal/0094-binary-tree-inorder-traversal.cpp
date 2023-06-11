@@ -24,24 +24,50 @@ public:
         
         
         // using stack
-         if(root==NULL)
-            return {};
+//          if(root==NULL)
+//             return {};
+//         TreeNode* node=root;
+//         stack<TreeNode*>st;
+//         while(true){
+//             if(node){
+//                 st.push(node);
+//                 node=node->left;
+//             }
+//             else{
+//                 if(st.empty()==true)break;
+//                node= st.top();
+//                 st.pop();
+//                 v.push_back(node->val);
+//                 node=node->right;
+//             }
+//         }
+//         return v;
+        
+        
+//         Morris traversal 
+//         node  curr
         TreeNode* node=root;
-        stack<TreeNode*>st;
-        while(true){
-            if(node){
-                st.push(node);
-                node=node->left;
-            }
-            else{
-                if(st.empty()==true)break;
-               node= st.top();
-                st.pop();
+        while(node){
+            if(node->left==NULL){
                 v.push_back(node->val);
                 node=node->right;
             }
+            else{
+                TreeNode* prev=node->left;
+                while(prev->right!=NULL && prev->right!=node){
+                    prev=prev->right;
+                }
+                if(prev->right==NULL){
+                    prev->right=node;
+                    node=node->left;
+                }
+                else{
+                    prev->right=NULL;
+                    v.push_back(node->val);
+                    node=node->right;
+                }
+            }
         }
-        
-        return v;
+          return v;
     }
 };
