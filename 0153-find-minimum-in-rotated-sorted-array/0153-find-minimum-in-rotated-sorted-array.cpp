@@ -9,6 +9,10 @@ public:
       
 	 while(low<=high){
           mid=(high+low)/2;
+         if(arr[low]<=arr[high]){
+             minm=min(minm,arr[low]);
+             break;
+         }
 		  if(arr[mid]>=arr[low]){
 			 minm=min(minm,arr[low]);
                low=mid+1;
