@@ -1,0 +1,42 @@
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& arr) {
+        // map<int,int>mp;
+        // for(auto i:nums)
+        //   mp[i]++;
+        //   int x;
+        //   for(auto i:mp){
+        //    if(i.second==1)
+        //    return i.first;
+        //   }
+        //   return -1;
+        
+        int n=arr.size();
+        if(n==1)
+            return arr[0];
+        if(arr[0]!=arr[1])
+            return arr[0];
+         if(arr[n-1]!=arr[n-2])
+            return arr[n-1];
+         int low=0;
+	    int high=n-1;
+     // int maxm=INT_MIN;
+     int mid;
+      
+	 while(low<=high){
+          mid=(high+low)/2;
+        
+         if(arr[mid]!=arr[mid+1] && arr[mid]!=arr[mid-1])
+             return arr[mid];
+         
+//          left half is ok check in  right half
+         if(((mid%2) && arr[mid]==arr[mid-1]) || ((mid%2==0) && arr[mid]==arr[mid+1]) )
+            low=mid+1;
+            else
+//             right half
+            high=mid-1;
+             
+	 }
+        return -1;
+    }
+};
