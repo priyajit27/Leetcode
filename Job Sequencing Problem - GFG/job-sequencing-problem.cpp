@@ -38,7 +38,7 @@ class Solution
             maxi=max(maxi,arr[i].dead);
         }
         
-        vector<int>nums(maxi+1,-1);
+        vector<int>nums(maxi,-1);
         
         
         int countprofit=0;
@@ -46,7 +46,7 @@ class Solution
         
         
         for(int i=0;i<n;i++){
-            for(int j=arr[i].dead;j>0;j--){
+            for(int j=arr[i].dead-1;j>=0;j--){
                 if(nums[j]==-1){
                     nums[j]=arr[i].dead;
                     countprofit+=arr[i].profit;
