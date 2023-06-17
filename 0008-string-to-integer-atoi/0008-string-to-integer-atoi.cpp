@@ -26,6 +26,7 @@ public:
         
         while(i<s.length() && isdigit(s[i])){
             ans=ans*10+s[i]-'0';
+//             here if we take int ans then it will overflow here so we have taken long
             if(ans*sign>=maxm)
                 return maxm;
             if(ans*sign<=INT_MIN)
