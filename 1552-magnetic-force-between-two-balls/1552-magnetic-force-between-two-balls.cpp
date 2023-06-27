@@ -1,13 +1,13 @@
 class Solution {
 public:
-    bool isPossible(vector<int> &a,int mid,int cow){
+    bool isPossible(vector<int> &a,int mid,int ball){
     int coordinate=a[0];
     int count=1;
 
     for(int i=1;i<a.size();i++){
       if((a[i]-coordinate)>=mid){
           count++;
-           if(count==cow)
+           if(count==ball)
          return true;
           coordinate=a[i];
       }
@@ -17,16 +17,16 @@ public:
 
        return false;
 }
-    int maxDistance(vector<int>& stalls, int m) {
-          int n=stalls.size();
-    sort(stalls.begin(),stalls.end());
+    int maxDistance(vector<int>& positions, int m) {
+       int n=positions.size();
+    sort(positions.begin(),positions.end());
     int low=0;
-    int high=stalls[n-1];
+    int high=positions[n-1];
      int res=0;
     while(low<=high){
         int mid=(low+high)/2;
 
-        if(isPossible(stalls,mid,m)){
+        if(isPossible(positions,mid,m)){
               res=mid;
               low=mid+1;
         }
