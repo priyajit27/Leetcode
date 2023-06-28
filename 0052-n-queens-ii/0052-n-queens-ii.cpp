@@ -28,12 +28,12 @@ public:
         
         vector<vector<string>>ans;
         vector<string>board(n);
-        // string s;
+        string s;
         
-       string s(n,'.');
+       // string s(n,'.');
         
-        // for(int i=0;i<n;i++)
-        //     s[i]='.';
+        for(int i=0;i<n;i++)
+            s[i]='.';
         
          for(int i=0;i<n;i++){
             board[i]=s;
