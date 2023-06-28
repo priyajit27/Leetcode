@@ -24,6 +24,8 @@ public:
         }
     }
     vector<vector<string>> solveNQueens(int n) {
+//         See the less optimised also
+        
         vector<vector<string>>ans;
         vector<string>board(n);
         // string s;
