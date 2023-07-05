@@ -25,6 +25,7 @@ public:
         return ans;
   }
     int subarraysWithKDistinct(vector<int>& nums, int k) {
+//           // Count number of substrings having k distinct gfg solution same
          return check(nums,k)-check(nums,k-1);
     }
 };
