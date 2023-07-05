@@ -16,6 +16,7 @@ public:
             j++;
         }
         
+//         We donot have to take that 0 so ans-1
         return ans-1;
     }
 };
