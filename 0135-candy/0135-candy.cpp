@@ -1,6 +1,7 @@
 class Solution {
 public:
     int candy(vector<int>& rate) {
+// //         TC O(N)  SC O(N)
         int n=rate.size();
         vector<int>candy(n,1);
             for(int i=1;i<n;i++){
@@ -18,5 +19,8 @@ public:
                 ans+=candy[i];
             }
         return ans;
+        
+        
+        
     }
 };
