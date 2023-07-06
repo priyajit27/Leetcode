@@ -17,6 +17,7 @@ class Solution {
         long long ans=0;
         int n=bt.size();
         for(int i=0;i<bt.size();i++){
+            // The one will be first for that remaining persons have to wait so we are multiplying the reaming ones with its value
             ans+=bt[i]*(n-i-1);
         }
         return ans/n;
