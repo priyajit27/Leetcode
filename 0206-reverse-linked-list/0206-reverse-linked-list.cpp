@@ -18,19 +18,34 @@ public:
        //  head->next=NULL;
        //  return newnode;
         
-          ListNode *p,*q,*r;
-        p=head;
-        q=NULL;
-        r=NULL;
-        if(head==NULL)
-            return NULL;
-        while(p!=0){
-            r=q;
-            q=p;
-            p=p->next;
-            q->next=r;
+        //   ListNode *p,*q,*r;
+        // p=head;
+        // q=NULL;
+        // r=NULL;
+        // if(head==NULL)
+        //     return NULL;
+        // while(p!=0){
+        //     r=q;
+        //     q=p;
+        //     p=p->next;
+        //     q->next=r;
+        // }
+        // // head =q;
+        // return q;
+        
+        
+        // Recursive
+        if(head==NULL || head->next ==NULL)
+            return head;
+        
+        ListNode* newnode=NULL;
+        
+        while(head){
+           ListNode* next=head->next;
+            head->next=newnode;
+            newnode=head;
+            head=next;
         }
-        // head =q;
-        return q;
+        return newnode;;
     }
 };
