@@ -11,7 +11,7 @@ public:
          profit=max(-prices[index]+rec(prices,index+1,1,dp,fee),rec(prices,index+1,0,dp,fee));
             
             else
-            profit=max(prices[index]+rec(prices,index+1,0,dp,fee),rec(prices,index+1,1,dp,fee))  ;  
+            profit=max(prices[index]+rec(prices,index+1,0,dp,fee)-fee,rec(prices,index+1,1,dp,fee))  ;  
         return dp[index][buy]= profit;
     }
     int maxProfit(vector<int>& prices, int fee) {
