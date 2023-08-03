@@ -16,7 +16,7 @@ public:
 //     // not pick
 //      rec(index+1,target,ans,n,arr,path);
          for(int i=index;i<nums.size();i++){
-             if(i>index && nums[i]==nums[i-1])continue;
+             if(i!=index && nums[i]==nums[i-1])continue;
              if(nums[i]>target)break;
              path.push_back(nums[i]);
                rec(i+1,target-nums[i],ans,n,nums,path);
