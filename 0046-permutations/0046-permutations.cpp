@@ -1,8 +1,8 @@
 class Solution {
 private:
-  void repermute( vector<int>& ds,vector<int>& nums, vector<vector<int>>& ans,int fre[]){
+  void repermute( vector<int>& ds,vector<int>& nums,set<vector<int>>& ans,int fre[]){
       if(ds.size()==nums.size()){
-          ans.push_back(ds);
+          ans.insert(ds);
         //   return;
       }
       for(int i=0;i<nums.size();i++){
@@ -17,7 +17,8 @@ private:
   }
 public:
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>>ans;
+          sort(nums.begin(),nums.end());
+        set<vector<int>>ans;
         vector<int>ds;
         // int fre[nums.size()]={0};
         int fre[nums.size()];
@@ -25,6 +26,12 @@ public:
             fre[i]=0;
         }
         repermute(ds,nums,ans,fre);
-        return ans;
+     
+          vector<vector<int>>ans1;
+        for(auto i:ans){
+            ans1.push_back(i);
+        }
+         return ans1;
+        // return ans;
     }
 };
