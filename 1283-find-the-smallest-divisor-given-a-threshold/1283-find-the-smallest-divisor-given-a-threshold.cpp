@@ -32,7 +32,7 @@ public:
             else
               low=mid+1;  
         }
-        return low;
+        return ans;
         
     }
 };
