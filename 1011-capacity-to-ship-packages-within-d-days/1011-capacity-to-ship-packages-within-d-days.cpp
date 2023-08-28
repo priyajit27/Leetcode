@@ -23,18 +23,18 @@ public:
         for(int i=0;i<nums.size();i++){
             low=max(low,nums[i]);
         }
-        
+        int ans=low;
         while(low<=high){
             int mid=low+(high-low)/2;
              int dayreqd=check(nums,mid);
             
             if(dayreqd<=days){
-                // ans=mid;
+                ans=mid;
                 high=mid-1;
             }
             else
               low=mid+1;  
         }
-        return low;
+        return ans;
     }
 };
