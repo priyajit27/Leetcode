@@ -23,7 +23,7 @@ public:
              return false;
         
         queue<int>q;
-        vector<bool>visited(n,false);
+        vector<int>visited(n,false);
         
         q.push(root);
         // visited[root]=true;
