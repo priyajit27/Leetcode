@@ -8,6 +8,8 @@ public:
                 time[i]=double(dist[i])/(speed[i]);
             }
         sort(time.begin(),time.end());
+        for(auto i:time)
+            cout<<i<<" ";
         int ans=0;
         int t=0;
         
