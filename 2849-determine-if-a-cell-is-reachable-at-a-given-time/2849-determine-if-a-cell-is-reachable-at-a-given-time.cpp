@@ -8,8 +8,12 @@ public:
             if(t==1)
                 return false;
         }
-        if(x<=t && y<=t)
-            return true;
-        return false;
+        // if(x<=t && y<=t)
+        //     return true;
+        // return false;
+        
+        int minm=max(x,y);
+        if(minm>t)return false;
+        return true;
     }
 };
