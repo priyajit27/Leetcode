@@ -12,8 +12,8 @@ public:
         //     return true;
         // return false;
         
-        int minm=max(x,y);
-        if(minm>t)return false;
+        int maxm=max(x,y);
+        if(maxm>t)return false;
         return true;
     }
 };
