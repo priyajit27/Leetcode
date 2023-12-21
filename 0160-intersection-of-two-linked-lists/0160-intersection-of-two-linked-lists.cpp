@@ -9,7 +9,7 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        int n=0;int m=0;
+          int n=0;int m=0;
         ListNode* ptr1=headA;
         ListNode* ptr2=headB;
         
