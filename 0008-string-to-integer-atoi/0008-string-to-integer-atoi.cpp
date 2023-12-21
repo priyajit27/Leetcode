@@ -1,7 +1,7 @@
 class Solution {
 public:
     int myAtoi(string s) {
-        int n=s.length();
+          int n=s.length();
       if(s.length()==0)
           return 0;
         
