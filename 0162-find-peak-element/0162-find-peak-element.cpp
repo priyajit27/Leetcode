@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findPeakElement(vector<int>& arr) {
-   int n=arr.size();
+          int n=arr.size();
          int low=0;
 	    int high=n-1;
         int index=-1;
@@ -33,6 +33,6 @@ public:
              low=mid+1;
              
 	 }
-        return low;
+        return low; 
     }
 };
