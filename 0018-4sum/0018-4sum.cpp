@@ -24,8 +24,8 @@ public:
                            
                            low++;high--;
                            
-                           while(low<n && nums[low]==nums[low-1])low++;
-                            while(high>=0 && nums[high]==nums[high+1])high--;
+                           while(low<high && nums[low]==nums[low-1])low++;
+                            while(low<high && nums[high]==nums[high+1])high--;
                            
                        } 
                         else if(sum>target)high--;
