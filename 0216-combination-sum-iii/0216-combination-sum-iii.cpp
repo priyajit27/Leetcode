@@ -19,7 +19,7 @@ public:
         }
     }
     vector<vector<int>> combinationSum3(int k, int n) {
-        vector<int>nums;
+          vector<int>nums;
         for(int i=1; i<=9; i++) nums.push_back(i);
            vector<int>temp;
         rec(0,n,k,nums,temp);
