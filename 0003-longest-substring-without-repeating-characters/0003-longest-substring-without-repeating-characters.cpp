@@ -1,7 +1,7 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        int n=s.length();
+         int n=s.length();
         map<char,int>mp;
         int ans=0;
         int l=0;
@@ -11,6 +11,7 @@ public:
                l=max(l,mp[s[r]]+1);
            mp[s[r]]=r;
            ans=max(ans,r-l+1);
+           cout<<ans;
            r++;
        }
         return ans;
