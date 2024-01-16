@@ -23,6 +23,7 @@ public:
     
     int getRandom() {
         int pos=rand()%s.size();
+        // std::next returns an iterator pointing to the element after being advanced by certain no. of positions.
         return *next(s.begin(),pos);
     }
 };
