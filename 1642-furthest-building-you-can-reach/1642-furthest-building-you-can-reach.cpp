@@ -13,8 +13,8 @@ public:
            }
                 else if(ladders>0){
                     if(!pq.empty() && pq.top()>diff){
-                        int t=pq.top();
-                        bricks+=t-diff;
+                        int top=pq.top();
+                        bricks+=top-diff;
                         pq.pop();
                         pq.push(diff);
                         ladders--;
