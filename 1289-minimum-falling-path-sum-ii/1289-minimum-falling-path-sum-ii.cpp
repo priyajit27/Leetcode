@@ -13,8 +13,8 @@ public:
        if(k!=j)
        minm=min(minm,matrix[i][j]+rec(i-1,k,matrix,dp));
    }
-    dp[i][j]=minm;
-         return dp[i][j];
+    return dp[i][j]=minm;
+         // return dp[i][j];
 }
     int minFallingPathSum(vector<vector<int>>& matrix) {
           int n=matrix.size();
