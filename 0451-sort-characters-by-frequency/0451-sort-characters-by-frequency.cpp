@@ -27,5 +27,8 @@ public:
         
         
         return s1;
+        
+//         SC  O(N)+o(k)+O(k)
+//         TC  0(N)+0(Nlogk)+O(klogk)
     }
 };
