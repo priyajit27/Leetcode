@@ -13,8 +13,9 @@ public:
                 count--;
                 left++;
             }
+            // right++;
+            ans=max(ans,right-left+1);
             right++;
-            ans=max(ans,right-left);
         }
         return ans;
     }
