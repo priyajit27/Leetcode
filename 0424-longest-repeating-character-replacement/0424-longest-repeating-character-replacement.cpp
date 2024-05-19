@@ -1,7 +1,6 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-//         O(N)         Sc almost O(1) as the array is 26 size only
          vector<int>cnt(26,0);
         int left = 0, right = 0;
         int count = 0;
