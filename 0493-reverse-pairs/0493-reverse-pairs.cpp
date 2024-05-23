@@ -10,6 +10,9 @@ public:
             
             count+=j-(mid+1);
         }
+//          while(i<=mid && j<=high){
+        
+//     }
         
           vector<int>v;
     // int count=0;
