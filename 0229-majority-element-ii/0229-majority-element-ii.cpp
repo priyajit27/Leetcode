@@ -33,7 +33,7 @@ public:
             if(num==num1)c1++;
             if(num==num2)c2++;
         }
-        int mini=n/3+1;
+        int mini=int(n/3)+1;
         if(c1>=mini)
             ans.push_back(num1);
          if(c2>=mini)
