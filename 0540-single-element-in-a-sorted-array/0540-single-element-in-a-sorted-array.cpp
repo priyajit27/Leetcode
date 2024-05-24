@@ -1,15 +1,6 @@
 class Solution {
 public:
     int singleNonDuplicate(vector<int>& arr) {
-        // map<int,int>mp;
-        // for(auto i:nums)
-        //   mp[i]++;
-        //   int x;
-        //   for(auto i:mp){
-        //    if(i.second==1)
-        //    return i.first;
-        //   }
-        //   return -1;
         
         int n=arr.size();
         if(n==1)
