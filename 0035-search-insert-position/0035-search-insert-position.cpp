@@ -1,6 +1,7 @@
 class Solution {
 public:
     int searchInsert(vector<int>& arr, int x) {
+//         lower bound
         int n=arr.size();
         int low=0;
 	int high=n-1;
