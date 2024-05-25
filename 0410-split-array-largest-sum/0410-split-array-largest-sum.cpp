@@ -3,7 +3,6 @@ public:
     bool isPossible(vector<int> &a,int mid,int m){
     int allocatestudent=1;
     int pages=0;
-
     for(int i=0;i<a.size();i++){
         if(a[i]>mid)
         return false;
@@ -16,9 +15,6 @@ public:
         else
         pages+=a[i];
     }
-
-    //    if(allocatestudent>m)
-    //    return false;
        return true;
 }
     int splitArray(vector<int>& a, int k) {
@@ -28,7 +24,7 @@ public:
 	return -1;
 	int low=a[0];int high=0;
 	for(int i=0;i<n;i++){
-		low=min(low,a[i]);
+		low=max(low,a[i]);
 		high+=a[i];
 	}
       int ans=0;
