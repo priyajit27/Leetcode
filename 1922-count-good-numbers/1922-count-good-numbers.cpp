@@ -4,11 +4,14 @@ public:
     long long power(long long x,long long y){
         if(y==0)
             return 1;
+        
         long long ans=power(x,y/2);
-        ans*=ans;
-        ans%=m;
-        if(y%2)ans*=x;
-         ans%=m;
+        
+        ans=(ans*ans)%m;
+        
+        if(y%2)
+            ans=(ans*x)%m;
+
         return ans;
     }
     int countGoodNumbers(long long n) {
