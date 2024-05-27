@@ -6,8 +6,10 @@ public:
         
         for(int j=i;j<s.size();j++){
             string temp=s.substr(i,j-i+1);
-            if(sets.find(temp)!=sets.end() && rec(j+1,s,sets,wordDict,dp))
+            if(sets.find(temp)!=sets.end()){
+                if(rec(j+1,s,sets,wordDict,dp))
                 return dp[i] =true;
+            }
         }
         return dp[i]=false;
     }
