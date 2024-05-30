@@ -20,11 +20,11 @@ public:
     }  
     TreeNode* build(vector<int>& postorder,int poststart,int postend,vector<int>& inorder,int instart,int inend) {
         // int postend=postorder.size()-1;
-        if(instart>inend )
+        if(instart>inend || poststart>postend)
             return NULL;
         TreeNode* root=new TreeNode(postorder[postend]);
-        if(instart==inend)
-            return root;
+        // if(instart==inend)
+        //     return root;
         int inroot=mp[root->val];
         int left=inroot-instart;
         root->left=build(postorder,poststart,poststart+left-1,inorder,instart,inroot-1);  
