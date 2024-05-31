@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool checkValidString(string s) {
+//         T.C  O(N)             Sc O(N) nearly n=100 worst case
             stack<int>open;
             stack<int>star;
         
