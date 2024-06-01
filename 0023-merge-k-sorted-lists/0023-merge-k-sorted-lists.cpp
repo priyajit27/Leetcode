@@ -12,7 +12,7 @@ class Solution {
 public:
     class compare{
         public:
-        bool operator()(const ListNode* a,const ListNode* b){
+        bool operator()( ListNode* a, ListNode* b){
               return (a->val>b->val);
     }
         };
