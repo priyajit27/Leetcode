@@ -22,15 +22,27 @@ public:
         // }
         // return q;
         
-         ListNode* front=head;
-        ListNode* temp=NULL;ListNode* prev=NULL;
-        if(head==NULL)return NULL;
-        while( front){
-            prev=temp;
-            temp= front;
-             front= front->next;
-            temp->next= prev;
-        }
-        return temp;
+        
+//         Iterative
+        //  ListNode* front=head;
+        // ListNode* temp=NULL;ListNode* prev=NULL;
+        // if(head==NULL)return NULL;
+        // while( front){
+        //     prev=temp;
+        //     temp= front;
+        //      front= front->next;
+        //     temp->next= prev;
+        // }
+        // return temp;
+        
+        
+        // recursive
+        if(!head || !head->next)return head;
+        ListNode* newhead=reverseList(head->next);
+         ListNode* front=head->next;
+          front->next=head;
+        head->next=NULL;
+        
+        return newhead;
     }
 };
