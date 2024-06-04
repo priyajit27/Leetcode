@@ -5,8 +5,8 @@ public:
         int m=nums1.size();
         map<int,int>mp;
         stack<int>st;
-        st.push(nums2[n-1]);
-        for(int i=n-2;i>=0;i--){
+        // st.push(nums2[n-1]);
+        for(int i=n-1;i>=0;i--){
             while(!st.empty() && nums2[i]>=st.top()){
                 st.pop();
             }
