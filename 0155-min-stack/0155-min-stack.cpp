@@ -28,6 +28,9 @@ public:
              st.pop();
         else{
           minm=2*minm- st.top();
+//             minm=2*minm -(2*val -previous minm)
+//             minm=2*minm -(2*Minm -previous minm)
+//         minm=prev minm
             st.pop();
         }
     }
