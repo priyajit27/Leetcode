@@ -16,24 +16,25 @@ int rec(int i,int j,vector<vector<int>>& grid,vector<vector<int>>& dp){
         //   Memoisation
         int m=grid.size();
         int n=grid[0].size();
-      vector<vector<int>>dp(m,vector<int>(n,-1));
-      int ans=rec(m-1,n-1,grid,dp);
-      return ans;
-    // dp[0][0]=grid[0][0];
-    // for(int i=0;i<m;i++){
-    //    for(int j=0;j<n;j++) {
-    //        if(i==0 && j==0)
-    //         continue;
-    //         else{
-    //           if(i>0)  up=grid[i][j]+rec(i-1,j,grid,dp);
-    //           else up=grid[i][j]+1e5;
-    //            if(j>0)down =grid[i][j]+rec(i,j-1,grid,dp);
-    //             else down=grid[i][j]+1e5;
-    //            dp[i][j]=min(up,down);
-    //         }
-    //    }
-    // }
-    // return dp[m-1][n-1];
+      // vector<vector<int>>dp(m,vector<int>(n,-1));
+      // int ans=rec(m-1,n-1,grid,dp);
+      // return ans;
+         vector<vector<int>>dp(m,vector<int>(n,0));
+    dp[0][0]=grid[0][0];
+    for(int i=0;i<m;i++){
+       for(int j=0;j<n;j++) {
+           if(i==0 && j==0)
+            continue;
+            else{
+              if(i>0)  up=grid[i][j]+rec(i-1,j,grid,dp);
+              else up=1e5;
+               if(j>0)down =grid[i][j]+rec(i,j-1,grid,dp);
+                else down=1e5;
+               dp[i][j]=min(up,down);
+            }
+       }
+    }
+    return dp[m-1][n-1];
 
     //  Space optimised
     // vector<int>prev(n,0);
