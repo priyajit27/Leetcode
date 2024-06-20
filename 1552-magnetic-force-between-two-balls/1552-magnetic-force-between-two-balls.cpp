@@ -18,6 +18,7 @@ public:
        return false;
 }
     int maxDistance(vector<int>& positions, int m) {
+//         similar like agressive cows
        int n=positions.size();
     sort(positions.begin(),positions.end());
     int low=0;
