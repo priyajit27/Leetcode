@@ -85,6 +85,6 @@ public:
                 a[index]=nums[i];
             }
         }
-        return ans;
+        return a.size();
     }
 };
