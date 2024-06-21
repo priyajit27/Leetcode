@@ -2,9 +2,9 @@ class Solution {
 public:
     int rec(string s1,string s2,int i,int j, vector<vector<int>>& dp){
         if(i<0)
-            return j+1;
+            return j;
         if(j<0)
-            return i+1;
+            return i;
         if(dp[i][j]!=-1)
             return dp[i][j];
         if(s1[i]==s2[j])
