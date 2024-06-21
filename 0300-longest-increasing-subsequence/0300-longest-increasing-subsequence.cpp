@@ -53,17 +53,38 @@ public:
 //             front=curr;
 //         }
 //        return front[0];
+       
         
-        int maxi=INT_MIN;
-        vector<int>dp(n+1,1);
-        for(int ind=0;ind<n;ind++){
-            for(int prev=0;prev<ind;prev++){
-                if( nums[ind]>nums[prev]){
-                    dp[ind]=max( dp[ind],1+ dp[prev]);
-                }
+//         Simple algo 
+        // int maxi=INT_MIN;
+        // vector<int>dp(n+1,1);
+        // for(int ind=0;ind<n;ind++){
+        //     for(int prev=0;prev<ind;prev++){
+        //         if( nums[ind]>nums[prev]){
+        //             dp[ind]=max( dp[ind],1+ dp[prev]);
+        //         }
+        //     }
+        //     maxi=max(maxi,dp[ind]);
+        // }
+        // return maxi;
+        
+        
+//         Binary serach
+        
+        vector<int>a;
+        a.push_back(nums[0]);
+        int ans=1;
+        for(int i=1;i<n;i++){
+            if(nums[i]>a.back()){
+                 a.push_back(nums[i]);
+                ans++;
             }
-            maxi=max(maxi,dp[ind]);
+                // a.push_back(a[i]);
+            else{
+               int index=lower_bound(a.begin(),a.end(),nums[i]) -a.begin();
+                a[index]=nums[i];
+            }
         }
-        return maxi;
+        return ans;
     }
 };
