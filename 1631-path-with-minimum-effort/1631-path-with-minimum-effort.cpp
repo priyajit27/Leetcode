@@ -14,15 +14,16 @@ public:
         int dc[]={0,1,0,-1};
         
         pq.push({0,{0,0}});
+        int  diff;
         while(!pq.empty()){
             auto it=pq.top();
             pq.pop();
-            int diff=it.first;
+            diff=it.first;
             int r=it.second.first;
             int c=it.second.second;
             
-            if(r==n-1 && c==m-1)
-            return diff;
+            // if(r==n-1 && c==m-1)
+            // return diff;
             
             for(int i=0;i<4;i++){
                 int newr=r+dr[i];
@@ -36,6 +37,6 @@ public:
                 }
             }
         }
-        return 0;  
+        return dist[n-1][m-1];  
     }
 };
