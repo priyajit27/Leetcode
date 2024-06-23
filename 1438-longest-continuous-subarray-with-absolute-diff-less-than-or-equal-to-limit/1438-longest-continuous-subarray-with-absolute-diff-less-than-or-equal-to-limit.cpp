@@ -3,7 +3,7 @@ public:
     int longestSubarray(vector<int>& nums, int limit) {
         int i=0;
         int n=nums.size();
-        int ans=0;
+        int ans=1;
        multiset<int>s;
         for(int j=0;j<n;j++){
             s.insert(nums[j]);
