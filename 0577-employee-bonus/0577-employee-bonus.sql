@@ -4,6 +4,6 @@ FROM
 Employee as a 
 LEFT JOIN Bonus as b
 ON a.empId=b.empId
-WHERE bonus IS NULL 
-OR bonus<1000
+WHERE b.bonus IS NULL 
+OR b.bonus<1000
 
