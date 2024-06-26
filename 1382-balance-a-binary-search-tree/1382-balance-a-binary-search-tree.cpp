@@ -13,7 +13,7 @@ class Solution {
 public:
     vector<int>ans;
     TreeNode* bst(int l,int r){
-        if(l>r)return 0;
+        if(l>r)return NULL;
         int mid=(l+r)/2;
         TreeNode* root=new TreeNode(ans[mid]);
         // root->val=ans[mid];
