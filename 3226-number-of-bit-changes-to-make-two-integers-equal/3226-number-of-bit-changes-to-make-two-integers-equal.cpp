@@ -8,7 +8,7 @@ public:
             int y=k&1;
              cout<<y<<" ";
            if(x==1 && y==0)count++;
-          if(x==0 && y==1)
+          else if(x==0 && y==1)
             return -1;
             n=n>>1;
             k=k>>1;
