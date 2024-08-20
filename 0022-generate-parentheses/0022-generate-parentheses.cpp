@@ -1,8 +1,11 @@
 class Solution {
 public:
     void rec(int left,int right,string s,vector<string> & ans){
-        if(left==0 && right==0)
+        if(left==0 && right==0){
             ans.push_back(s);
+            return;
+        }
+            // ans.push_back(s);
         
         if(left>right || left<0 || right<0)
             return ;
