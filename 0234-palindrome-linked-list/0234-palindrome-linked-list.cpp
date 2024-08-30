@@ -26,8 +26,8 @@ public:
             fast=fast->next->next;
         }
         
-ListNode* head1=reverseList(slow);
-        while(head1){
+   ListNode* head1=reverseList(slow);
+        while(head1 && head){
             if(head1->val!=head->val)return false;
             head1=head1->next;
             head=head->next;
