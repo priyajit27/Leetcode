@@ -24,7 +24,7 @@ public:
         while(!q.empty()){
             int x=q.size();
             // TreeNode* node=q.front().first;
-                 int currmin=q.front().second;
+                 // int currmin=q.front().second;
             int left;
             int right;
             for(int i=0;i<x;i++){
