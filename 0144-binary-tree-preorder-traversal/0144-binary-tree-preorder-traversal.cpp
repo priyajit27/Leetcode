@@ -14,32 +14,32 @@ public:
          void helper(TreeNode*root,vector<int>&v){
         if(root==NULL)
             return ;
-        if(root!=NULL){
+        // if(root!=NULL){
                 v.push_back(root->val);
                 helper(root->left,v) ;
               helper(root->right,v) ;
-        }
+        // }
     }
     vector<int> preorderTraversal(TreeNode* root) {
         vector<int>v;
-        // helper(root,v);
-        // return v;
-        
-        // using stack
-         if(root==NULL)
-            return {};
-        stack<TreeNode*>st;
-        st.push(root);
-        while(!st.empty()){
-             root=st.top();
-            st.pop();
-           v.push_back(root->val) ;
-//             O(N)
-            if(root->right)
-               st.push(root->right); 
-             if(root->left)
-               st.push(root->left); 
-        }
+        helper(root,v);
         return v;
+        
+//         // using stack
+//          if(root==NULL)
+//             return {};
+//         stack<TreeNode*>st;
+//         st.push(root);
+//         while(!st.empty()){
+//              root=st.top();
+//             st.pop();
+//            v.push_back(root->val) ;
+// //             O(N)
+//             if(root->right)
+//                st.push(root->right); 
+//              if(root->left)
+//                st.push(root->left); 
+//         }
+//         return v;
     }
 };
