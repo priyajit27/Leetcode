@@ -32,7 +32,7 @@ public:
 //         inorder(root->right,v);
 //     }
     void smallest(TreeNode* root, int& k,int& ans){
-        if(root==NULL)
+        if(root==NULL || k<=0)
             return ;
 //         Inorder
         smallest(root->left,k,ans);
