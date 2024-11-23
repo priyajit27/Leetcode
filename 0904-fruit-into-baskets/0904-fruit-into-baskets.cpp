@@ -32,13 +32,15 @@ public:
        while(j<n){
            mp[fruits[j]]++;
            while(mp.size()>2){
-            if(mp[fruits[i]]==1){
-               mp.erase(fruits[i]);
-                  // mp[fruits[i]]--;
-           }
-           else{
+           //  if(mp[fruits[i]]==1){
+           //     mp.erase(fruits[i]);
+           //        // mp[fruits[i]]--;
+           // }
+           // else{
            mp[fruits[i]]--;
-           }
+               if(mp[fruits[i]]==0)
+                  mp.erase(fruits[i]) ;
+           // }
            i++;
            }
            ans=max(j-i+1,ans);
