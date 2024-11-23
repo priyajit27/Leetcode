@@ -6,7 +6,7 @@ public:
             return count;
         
     if(start> goal){
-            while(start!=0){
+            while(start){
                 if((start&1) !=  (goal&1))
                     count++;
                 start=start>>1;
@@ -15,7 +15,7 @@ public:
         }
         
         else{
-               while( goal!=0){
+               while( goal){
                  if((start&1) !=  (goal&1))
                     count++;
                 start=start>>1;
